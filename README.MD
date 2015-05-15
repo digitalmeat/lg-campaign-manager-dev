@@ -1,5 +1,7 @@
 # LG Campaign manager
 
+## Código:
+
 Llamados para desarrolladores:
 
 ### lg_form_resize
@@ -9,9 +11,6 @@ Obtiene el tamaño de la página interior del iframe.
 ### lg_form_done
 
 Obtiene el fin del flujo del formulario del registro
-
-
-## Código:
 
 ```javascript
 $(function(){
@@ -38,3 +37,9 @@ $(function(){
    });
 });
 ```
+
+# Estilos de formulario
+
+Los códigos para re-diseñar el formulario de registro están adjuntos en este repositorio. [Hoja de estilos acá](https://github.com/digitalmeat/lg-campaign-manager-dev/blob/master/form.css)
+
+Al crear una campaña podrás escontrar una caja para poner los estilos, debes editarlos directamente ahí.
