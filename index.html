@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LG Campaign Manager - Ejemplo</title>
+
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+	<script>
+		  // Crear un listener
+		  var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+		  var eventer = window[eventMethod];
+		  var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+		  // Escuchar el evento
+		  eventer(messageEvent,function(e) {
+
+		    var currentIframe;
+		    $('.lg-form').each(function(){
+		    	if(this.contentWindow == e.source)
+		    		currentIframe = $(this);
+		    });
+
+		    // Diferenciar entre los distintos eventos
+		    var type = e.data.type;
+		    switch(e.data.type) {
+		      case 'lg_form_resize':
+		      	currentIframe.height(e.data.value)
+		        break;
+		      case 'lg_form_done':
+		        alert("Registro terminado")
+		        break;
+		    }
+
+
+		},false);
+	</script>
+	<style>
+		.row > div {
+			border: 1px solid #eaeaea;
+		}
+		.row > div:last-child {
+			border-left: none;
+		}
+		.wrapper{
+			max-width: 1200px;
+			margin: 0 auto;
+		}
+
+		iframe {
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<h3>Ejemplo en modal (lightbox)</h3>
+
+				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-formulario">Ver formulario</button>
+			</div>
+			<div class="row">
+				<h3>Ejemplos en contenedores de distintos tamaños</h3>
+				<div class="col-sm-8">
+					<iframe class="lg-form" src="http://validation.lgcontent.cl/campaign/f963bf80f3c274755bc450da696ab4e461f978b3" frameborder="0"></iframe>
+				</div>
+				<div class="col-sm-4">
+					<iframe class="lg-form" src="http://validation.lgcontent.cl/campaign/f963bf80f3c274755bc450da696ab4e461f978b3" frameborder="0"></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modal-formulario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	                <h4 class="modal-title" id="myModalLabel">iFrame en modal (responsivo)</h4>
+	            </div>
+	            <div class="modal-body">
+					<iframe src="http://validation.lgcontent.cl/campaign/f963bf80f3c274755bc450da696ab4e461f978b3" frameborder="0" class="lg-form test"></iframe>
+				</div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+</body>
+</html>
