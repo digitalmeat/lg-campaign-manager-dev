@@ -6,6 +6,8 @@ El formulario puede ser llamado de 2 formas posibles: via iframe o via link dire
 
 Adicionalmente, se provee el CSS pertinente al formulario para adaptar al sitio que lo contiene.
 
+Para ver un ejemplo implementado incluyendo eventos, ingresar acá (http://digitalmeat.github.io/lg-campaign-manager-dev/)
+
 
 ## Eventos JS
 
